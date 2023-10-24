@@ -85,6 +85,8 @@ end)
 
 -- Set up a PlayerRemoving event to save SDL values for leaving players
 players.PlayerRemoving:Connect(function(player)
+    --Access the player's ID
+    local playerID = player.UserId
     -- Find the player's SDL folder
     local playerFolder = player:FindFirstChild("SDL")
     if playerFolder then
@@ -103,7 +105,7 @@ players.PlayerRemoving:Connect(function(player)
             warn(errormessage)
             print("Retrying...")
             success, errormessage = pcall(function()
-                dataStore:SetAsync(player.UserId, data)
+                dataStore:SetAsync(playerID, data)
             end)
             -- If the retry succeeds, print a success message
             if success then
