@@ -5,3 +5,6 @@
 # Roblox Studio lock files
 /*.rbxlx.lock
 /*.rbxl.lock
+
+# Toml config file
+/*.toml
